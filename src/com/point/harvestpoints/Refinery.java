@@ -7,7 +7,5 @@ public class Refinery extends HarvestPoint {
         this.type = "Refinery";
     }
 
-    @Override
-    public String toString() { return this.type; }
 
 }

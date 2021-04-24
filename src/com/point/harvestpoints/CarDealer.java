@@ -7,7 +7,4 @@ public class CarDealer extends HarvestPoint {
         this.type = "CarDealer";
     }
 
-    @Override
-    public String toString() { return this.type; }
-
 }
