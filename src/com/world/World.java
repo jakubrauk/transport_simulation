@@ -1,5 +1,6 @@
 package com.world;
 
+import com.point.EmptyPoint.EmptyPoint;
 import com.point.Point;
 import com.point.harvestpoints.CarDealer;
 import com.point.harvestpoints.Refinery;
@@ -14,6 +15,8 @@ import com.vehicles.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.function.Supplier;
 
 public class World {
     int worldSize;
@@ -30,26 +33,6 @@ public class World {
 
     }
 
-
-    public void generateWorld(UserInput input) {
-
-        System.out.println("GENERATING WORLD");
-        this.pointsList = new Point[this.worldSize][this.worldSize];
-        this.pointsList[0][0] = new CarDealer(100);
-        this.pointsList[0][1] = new Refinery(150);
-        this.pointsList[0][2] = new Warehouse(150);
-        this.pointsList[0][3] = new Woodshed(150);
-
-        this.pointsList[1][0] = new SellCarDealer(150);
-        this.pointsList[1][1] = new SellRefinery(150);
-        this.pointsList[1][2] = new SellWarehouse(150);
-        this.pointsList[1][3] = new SellWoodshed(150);
-
-        this.placeVehicles();
-    }
-
-    public void checkWorldField(int x, int y) { System.out.println(this.pointsList[x][y]); }
-
     public List<Point> getAllPoints() {
         List<Point> listOfPoints = new ArrayList<>();
         for (int x = 0; x < this.worldSize; x++) {
@@ -62,6 +45,47 @@ public class World {
         }
         return listOfPoints;
     }
+
+    public void placeEmptyPoints(){
+        for (int x = 0; x < this.worldSize; x++) {
+            for (int y = 0; y < this.worldSize; y++) {
+                this.pointsList[x][y] = new EmptyPoint();
+            }
+        }
+    }
+
+    interface PointsSupplier extends Supplier<Point> {} // Supplier needed for storing list of Point child classes
+    public void placePoints(PointsSupplier[] points, int numberOfPoints) {
+        Random r = new Random(); // used for randomizing point coords
+        // randomize points location on map
+        for (int i = 0; i < numberOfPoints; i++) {
+            int randXcoords = r.nextInt(this.worldSize);
+            int randYcoords = r.nextInt(this.worldSize);
+            while (!this.pointsList[randXcoords][randYcoords].getTypeOfPoint().equals("Empty")) {
+                randXcoords = r.nextInt(this.worldSize);
+                randYcoords = r.nextInt(this.worldSize);
+            }
+            // Randomly choose point type
+            Point randomPoint = points[r.nextInt(points.length)].get();
+            randomPoint.setCoordinates(randXcoords, randYcoords);
+            this.pointsList[randXcoords][randYcoords] = randomPoint;
+        }
+    }
+
+    public void generateWorld(UserInput input) {
+
+        System.out.println("GENERATING WORLD");
+        this.pointsList = new Point[this.worldSize][this.worldSize];
+        this.placeEmptyPoints();
+        PointsSupplier[] listOfHarvestPointsClasses = {CarDealer::new, Refinery::new, Warehouse::new, Woodshed::new};
+        PointsSupplier[] listOfSellPointsClasses = {SellCarDealer::new, SellRefinery::new, SellWarehouse::new, SellWoodshed::new};
+
+        this.placePoints(listOfHarvestPointsClasses, input.getHarvestPlaceNumber());
+        this.placePoints(listOfSellPointsClasses, input.getSellPointNumber());
+        this.placeVehicles();
+    }
+
+    public void checkWorldField(int x, int y) { System.out.println(this.pointsList[x][y]); }
 
     public List<Vehicle> getAllVehicles() {
         List<Vehicle> listOfVehicles = new ArrayList<>();

@@ -9,6 +9,8 @@ public abstract class Point{
 
     protected String type;
     protected String typeOfPoint;
+    protected int xCoordinate;
+    protected int yCoordinate;
     protected List<Vehicle> listOfVehicles = new ArrayList<>();
 
     public String getType(){ return type; }
@@ -21,6 +23,14 @@ public abstract class Point{
         for (Vehicle v : this.listOfVehicles) {
             System.out.println(v.getType());
         }
+    }
+
+    public void setCoordinates(int x, int y) {
+        this.xCoordinate = x;
+        this.yCoordinate = y;
+    }
+    public void getListOfRandomizedPoints(int worldSize){
+        // returns 2 dimensional list of Points including HarvestPoints and
     }
 
     public List<Vehicle> getListOfVehicles() {

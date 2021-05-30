@@ -9,6 +9,7 @@ public abstract class Vehicle {
     protected int maxAmountOfGoods;
     protected int xCoordinate;
     protected int yCoordinate;
+    protected boolean isLoaded;
 
     public void randomizeStartLocation() {
         // randomly generate x and y coords
@@ -20,6 +21,10 @@ public abstract class Vehicle {
 
     public int getMaxAmountOfGoods() {
         return this.maxAmountOfGoods;
+    }
+
+    public boolean isVehicleLoaded() {
+        return this.isLoaded;
     }
 
     public int[] moveVehicle() {

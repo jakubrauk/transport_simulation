@@ -1,6 +1,7 @@
 package com.userinput;
 
 public class UserInput {
+    private int numberOfIterarions;
     private int vehicleNumber;
     private int harvestPlaceNumber;
     private int sellPointNumber;
@@ -18,6 +19,8 @@ public class UserInput {
     public void getUserInput() {
         // Collect data from user
     }
+
+    public int getNumberOfIterarions() { return numberOfIterarions; }
 
     public int getVehicleNumber() {
         return vehicleNumber;

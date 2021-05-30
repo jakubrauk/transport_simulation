@@ -2,8 +2,8 @@ package com.point.sellpoints;
 
 public class SellWoodshed extends SellPoint{
 
-    public SellWoodshed(int PrizeOfProduct){
-        this.PrizeOfProduct = PrizeOfProduct;
-        this.type = "CarDealer";
+    public SellWoodshed(){
+//        this.PrizeOfProduct = PrizeOfProduct; Commented out because of conflict in random generation
+        this.type = "Woodshed";
     }
 }

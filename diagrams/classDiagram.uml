@@ -3,116 +3,252 @@
   <ID>JAVA</ID>
   <OriginalElement>/home/rjacob/IdeaProjects/transport.simulation/src</OriginalElement>
   <nodes>
-    <node x="938.0" y="244.0">com.simulation.Main</node>
-    <node x="915.0000000000001" y="166.0">com.point.harvestpoints.Woodshed</node>
-    <node x="192.0" y="166.0">com.point.sellpoints.SellWarehouse</node>
-    <node x="254.0" y="244.0">com.vehicles.Vehicle</node>
-    <node x="660.5000000000001" y="0.0">com.point.Point</node>
-    <node x="980.75" y="83.0">com.point.harvestpoints.HarvestPoint</node>
-    <node x="562.0000000000001" y="166.0">com.point.sellpoints.SellCarDealer</node>
-    <node x="453.0" y="327.0">com.vehicles.Tanker</node>
-    <node x="790.0" y="244.0">com.world.World</node>
-    <node x="1220.0" y="166.0">com.point.harvestpoints.CarDealer</node>
-    <node x="309.0000000000001" y="83.0">com.point.sellpoints.SellPoint</node>
-    <node x="157.0" y="327.0">com.vehicles.TimberTruck</node>
-    <node x="1077.0" y="166.0">com.point.harvestpoints.Refinery</node>
-    <node x="337.0" y="327.0">com.vehicles.Lorry</node>
-    <node x="389.0000000000001" y="166.0">com.point.sellpoints.SellRefinery</node>
-    <node x="609.0" y="244.0">com.userinput.UserInput</node>
-    <node x="0.0" y="327.0">com.vehicles.TowTruck</node>
-    <node x="0.0" y="166.0">com.point.sellpoints.SellWoodshed</node>
-    <node x="748.0000000000001" y="166.0">com.point.harvestpoints.Warehouse</node>
+    <node x="803.0550847457625" y="1794.0">com.simulation.Main</node>
+    <node x="692.8559322033898" y="0.0">com.incomemanager.IncomeManager</node>
+    <node x="363.1059322033898" y="1170.0">com.point.sellpoints.SellWarehouse</node>
+    <node x="1111.1059322033898" y="1170.0">com.point.harvestpoints.Woodshed</node>
+    <node x="672.3559322033898" y="159.0">com.vehicles.Vehicle</node>
+    <node x="1297.4887005649714" y="815.0">com.point.harvestpoints.HarvestPoint</node>
+    <node x="453.6059322033897" y="853.0">com.point.EmptyPoint.EmptyPoint</node>
+    <node x="594.8559322033898" y="486.0">com.point.Point</node>
+    <node x="560.1059322033898" y="1170.0">com.point.sellpoints.SellCarDealer</node>
+    <node x="760.0550847457625" y="1489.0">com.world.World</node>
+    <node x="1186.8559322033898" y="608.0">com.vehicles.Tanker</node>
+    <node x="627.3559322033898" y="827.0">com.point.sellpoints.SellPoint</node>
+    <node x="1583.1059322033898" y="1170.0">com.point.harvestpoints.CarDealer</node>
+    <node x="890.8559322033898" y="608.0">com.vehicles.TimberTruck</node>
+    <node x="1440.1059322033898" y="1170.0">com.point.harvestpoints.Refinery</node>
+    <node x="1070.8559322033898" y="608.0">com.vehicles.Lorry</node>
+    <node x="746.1059322033898" y="1170.0">com.point.sellpoints.SellRefinery</node>
+    <node x="1044.0550847457625" y="1585.5">com.output.FileOutput</node>
+    <node x="1317.8559322033898" y="608.0">com.vehicles.TowTruck</node>
+    <node x="0.0" y="976.0">com.userinput.UserInput</node>
+    <node x="1273.1059322033898" y="1170.0">com.point.harvestpoints.Warehouse</node>
+    <node x="919.1059322033898" y="1170.0">com.point.sellpoints.SellWoodshed</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.point.harvestpoints.CarDealer" target="com.point.harvestpoints.HarvestPoint" relationship="GENERALIZATION">
-      <point x="0.0" y="-16.5" />
-      <point x="1288.0" y="141.0" />
-      <point x="1062.25" y="141.0" />
-      <point x="0.0" y="16.5" />
-    </edge>
     <edge source="com.vehicles.TowTruck" target="com.vehicles.Vehicle" relationship="GENERALIZATION">
       <point x="0.0" y="-16.5" />
-      <point x="68.5" y="302.0" />
-      <point x="311.0" y="302.0" />
-      <point x="0.0" y="16.5" />
-    </edge>
-    <edge source="com.point.sellpoints.SellWoodshed" target="com.point.sellpoints.SellPoint" relationship="GENERALIZATION">
-      <point x="0.0" y="-16.5" />
-      <point x="86.0" y="141.0" />
-      <point x="373.0000000000001" y="141.0" />
-      <point x="0.0" y="16.5" />
-    </edge>
-    <edge source="com.point.sellpoints.SellWarehouse" target="com.point.sellpoints.SellPoint" relationship="GENERALIZATION">
-      <point x="0.0" y="-16.5" />
-      <point x="280.5" y="141.0" />
-      <point x="373.0000000000001" y="141.0" />
-      <point x="0.0" y="16.5" />
+      <point x="1386.3559322033898" y="466.0" />
+      <point x="1180.6059322033898" y="466.0" />
+      <point x="1180.6059322033898" y="456.0" />
+      <point x="888.189265536723" y="456.0" />
+      <point x="86.33333333333331" y="138.5" />
     </edge>
     <edge source="com.point.harvestpoints.Refinery" target="com.point.harvestpoints.HarvestPoint" relationship="GENERALIZATION">
       <point x="0.0" y="-16.5" />
-      <point x="1138.5" y="141.0" />
-      <point x="1062.25" y="141.0" />
-      <point x="0.0" y="16.5" />
+      <point x="1501.6059322033898" y="950.0" />
+      <point x="1408.4887005649714" y="950.0" />
+      <point x="0.0" y="54.5" />
     </edge>
-    <edge source="com.vehicles.Lorry" target="com.vehicles.Vehicle" relationship="GENERALIZATION">
-      <point x="0.0" y="-16.5" />
-      <point x="385.0" y="302.0" />
-      <point x="311.0" y="302.0" />
-      <point x="0.0" y="16.5" />
+    <edge source="com.vehicles.Vehicle" target="com.incomemanager.IncomeManager" relationship="CREATE">
+      <point x="64.75" y="-138.5" />
+      <point x="866.6059322033898" y="134.0" />
+      <point x="856.3559322033898" y="134.0" />
+      <point x="54.5" y="54.5" />
+    </edge>
+    <edge source="com.simulation.Main" target="com.world.World" relationship="CREATE">
+      <point x="0.0" y="-30.0" />
+      <point x="0.0" y="126.5" />
     </edge>
     <edge source="com.point.sellpoints.SellCarDealer" target="com.point.sellpoints.SellPoint" relationship="GENERALIZATION">
       <point x="0.0" y="-16.5" />
-      <point x="645.0000000000001" y="141.0" />
-      <point x="373.0000000000001" y="141.0" />
-      <point x="0.0" y="16.5" />
+      <point x="643.1059322033898" y="950.0" />
+      <point x="732.8559322033898" y="950.0" />
+      <point x="0.0" y="42.5" />
+    </edge>
+    <edge source="com.point.Point" target="com.vehicles.Vehicle" relationship="DEPENDENCY">
+      <point x="-69.0" y="-138.5" />
+      <point x="663.8559322033898" y="466.0" />
+      <point x="288.5" y="466.0" />
+      <point x="288.5" y="456.0" />
+      <point x="715.5225988700564" y="456.0" />
+      <point x="-86.33333333333331" y="138.5" />
     </edge>
     <edge source="com.point.harvestpoints.Warehouse" target="com.point.harvestpoints.HarvestPoint" relationship="GENERALIZATION">
       <point x="0.0" y="-16.5" />
-      <point x="821.5000000000001" y="141.0" />
-      <point x="1062.25" y="141.0" />
-      <point x="0.0" y="16.5" />
+      <point x="1346.6059322033898" y="950.0" />
+      <point x="1408.4887005649714" y="950.0" />
+      <point x="0.0" y="54.5" />
     </edge>
     <edge source="com.point.sellpoints.SellRefinery" target="com.point.sellpoints.SellPoint" relationship="GENERALIZATION">
       <point x="0.0" y="-16.5" />
-      <point x="465.5000000000001" y="141.0" />
-      <point x="373.0000000000001" y="141.0" />
+      <point x="822.6059322033898" y="950.0" />
+      <point x="732.8559322033898" y="950.0" />
+      <point x="0.0" y="42.5" />
+    </edge>
+    <edge source="com.world.World" target="com.point.Point" relationship="CREATE">
+      <point x="-77.0" y="-126.5" />
+      <point x="815.0550847457625" y="1448.0" />
+      <point x="322.25" y="1448.0" />
+      <point x="322.25" y="784.0" />
+      <point x="640.8559322033898" y="784.0" />
+      <point x="-92.0" y="138.5" />
+    </edge>
+    <edge source="com.world.World" target="com.point.harvestpoints.Refinery" relationship="CREATE">
+      <point x="77.0" y="-126.5" />
+      <point x="969.0550847457625" y="1448.0" />
+      <point x="1501.6059322033898" y="1448.0" />
       <point x="0.0" y="16.5" />
     </edge>
-    <edge source="com.point.harvestpoints.Woodshed" target="com.point.harvestpoints.HarvestPoint" relationship="GENERALIZATION">
-      <point x="-1.1368683772161603E-13" y="-16.5" />
-      <point x="986.0" y="141.0" />
-      <point x="1062.25" y="141.0" />
-      <point x="0.0" y="16.5" />
-    </edge>
-    <edge source="com.point.harvestpoints.HarvestPoint" target="com.point.Point" relationship="GENERALIZATION">
-      <point x="0.0" y="-16.5" />
-      <point x="1062.25" y="58.0" />
-      <point x="709.5000000000001" y="58.0" />
+    <edge source="com.world.World" target="com.point.sellpoints.SellRefinery" relationship="CREATE">
+      <point x="-11.0" y="-126.5" />
+      <point x="881.0550847457625" y="1418.0" />
+      <point x="822.6059322033898" y="1418.0" />
       <point x="0.0" y="16.5" />
     </edge>
     <edge source="com.point.sellpoints.SellPoint" target="com.point.Point" relationship="GENERALIZATION">
+      <point x="0.0" y="-42.5" />
+      <point x="0.0" y="138.5" />
+    </edge>
+    <edge source="com.simulation.Main" target="com.output.FileOutput" relationship="CREATE">
+      <point x="59.33333333333326" y="-30.0" />
+      <point x="951.3884180790958" y="1768.0" />
+      <point x="1143.0550847457625" y="1768.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="com.vehicles.TimberTruck" target="com.vehicles.Vehicle" relationship="GENERALIZATION">
       <point x="0.0" y="-16.5" />
-      <point x="373.0000000000001" y="58.0" />
-      <point x="709.5000000000001" y="58.0" />
+      <point x="970.8559322033898" y="466.0" />
+      <point x="1180.6059322033898" y="466.0" />
+      <point x="1180.6059322033898" y="456.0" />
+      <point x="888.189265536723" y="456.0" />
+      <point x="86.33333333333331" y="138.5" />
+    </edge>
+    <edge source="com.point.harvestpoints.CarDealer" target="com.point.harvestpoints.HarvestPoint" relationship="GENERALIZATION">
+      <point x="0.0" y="-16.5" />
+      <point x="1651.1059322033898" y="950.0" />
+      <point x="1408.4887005649714" y="950.0" />
+      <point x="0.0" y="54.5" />
+    </edge>
+    <edge source="com.point.sellpoints.SellWoodshed" target="com.point.sellpoints.SellPoint" relationship="GENERALIZATION">
+      <point x="0.0" y="-16.5" />
+      <point x="1005.1059322033898" y="950.0" />
+      <point x="732.8559322033898" y="950.0" />
+      <point x="0.0" y="42.5" />
+    </edge>
+    <edge source="com.world.World" target="com.userinput.UserInput" relationship="DEPENDENCY">
+      <point x="-121.0" y="-126.5" />
+      <point x="771.0550847457625" y="1468.0" />
+      <point x="139.0" y="1468.0" />
+      <point x="0.0" y="210.5" />
+    </edge>
+    <edge source="com.point.sellpoints.SellWarehouse" target="com.point.sellpoints.SellPoint" relationship="GENERALIZATION">
+      <point x="0.0" y="-16.5" />
+      <point x="451.6059322033898" y="950.0" />
+      <point x="732.8559322033898" y="950.0" />
+      <point x="0.0" y="42.5" />
+    </edge>
+    <edge source="com.vehicles.Vehicle" target="com.incomemanager.IncomeManager" relationship="TO_ONE">
+      <point x="-64.75" y="-138.5" />
+      <point x="737.1059322033898" y="134.0" />
+      <point x="747.3559322033898" y="134.0" />
+      <point x="-54.5" y="54.5" />
+    </edge>
+    <edge source="com.vehicles.Lorry" target="com.vehicles.Vehicle" relationship="GENERALIZATION">
+      <point x="0.0" y="-16.5" />
+      <point x="1118.8559322033898" y="466.0" />
+      <point x="1180.6059322033898" y="466.0" />
+      <point x="1180.6059322033898" y="456.0" />
+      <point x="888.189265536723" y="456.0" />
+      <point x="86.33333333333331" y="138.5" />
+    </edge>
+    <edge source="com.world.World" target="com.point.harvestpoints.CarDealer" relationship="CREATE">
+      <point x="99.0" y="-126.5" />
+      <point x="991.0550847457625" y="1458.0" />
+      <point x="1651.1059322033898" y="1458.0" />
+      <point x="0.0" y="16.5" />
+    </edge>
+    <edge source="com.world.World" target="com.point.Point" relationship="TO_MANY">
+      <point x="121.0" y="-126.5" />
+      <point x="1013.0550847457625" y="1468.0" />
+      <point x="1729.6059322033898" y="1468.0" />
+      <point x="1729.6059322033898" y="784.0" />
+      <point x="824.8559322033898" y="784.0" />
+      <point x="92.0" y="138.5" />
+    </edge>
+    <edge source="com.point.EmptyPoint.EmptyPoint" target="com.point.Point" relationship="GENERALIZATION">
+      <point x="0.0" y="-16.5" />
+      <point x="530.1059322033898" y="794.0" />
+      <point x="732.8559322033898" y="794.0" />
+      <point x="0.0" y="138.5" />
+    </edge>
+    <edge source="com.world.World" target="com.vehicles.Vehicle" relationship="DEPENDENCY">
+      <point x="-99.0" y="-126.5" />
+      <point x="793.0550847457625" y="1458.0" />
+      <point x="288.5" y="1458.0" />
+      <point x="288.5" y="456.0" />
+      <point x="715.5225988700564" y="456.0" />
+      <point x="-86.33333333333331" y="138.5" />
+    </edge>
+    <edge source="com.point.harvestpoints.Woodshed" target="com.point.harvestpoints.HarvestPoint" relationship="GENERALIZATION">
+      <point x="0.0" y="-16.5" />
+      <point x="1182.1059322033898" y="950.0" />
+      <point x="1408.4887005649714" y="950.0" />
+      <point x="0.0" y="54.5" />
+    </edge>
+    <edge source="com.point.harvestpoints.HarvestPoint" target="com.point.Point" relationship="GENERALIZATION">
+      <point x="0.0" y="-54.5" />
+      <point x="1408.4887005649714" y="794.0" />
+      <point x="732.8559322033898" y="794.0" />
+      <point x="0.0" y="138.5" />
+    </edge>
+    <edge source="com.point.Point" target="com.vehicles.Vehicle" relationship="TO_MANY">
+      <point x="69.0" y="-138.5" />
+      <point x="0.0" y="138.5" />
+    </edge>
+    <edge source="com.world.World" target="com.point.sellpoints.SellCarDealer" relationship="CREATE">
+      <point x="-33.0" y="-126.5" />
+      <point x="859.0550847457625" y="1428.0" />
+      <point x="643.1059322033898" y="1428.0" />
+      <point x="0.0" y="16.5" />
+    </edge>
+    <edge source="com.simulation.Main" target="com.userinput.UserInput" relationship="CREATE">
+      <point x="-59.33333333333326" y="-30.0" />
+      <point x="832.7217514124293" y="1768.0" />
+      <point x="139.0" y="1768.0" />
+      <point x="0.0" y="210.5" />
+    </edge>
+    <edge source="com.world.World" target="com.point.sellpoints.SellWarehouse" relationship="CREATE">
+      <point x="-55.0" y="-126.5" />
+      <point x="837.0550847457625" y="1438.0" />
+      <point x="451.6059322033898" y="1438.0" />
+      <point x="0.0" y="16.5" />
+    </edge>
+    <edge source="com.world.World" target="com.point.sellpoints.SellWoodshed" relationship="CREATE">
+      <point x="11.0" y="-126.5" />
+      <point x="903.0550847457625" y="1418.0" />
+      <point x="1005.1059322033898" y="1418.0" />
+      <point x="0.0" y="16.5" />
+    </edge>
+    <edge source="com.world.World" target="com.point.harvestpoints.Warehouse" relationship="CREATE">
+      <point x="55.0" y="-126.5" />
+      <point x="947.0550847457625" y="1438.0" />
+      <point x="1346.6059322033898" y="1438.0" />
       <point x="0.0" y="16.5" />
     </edge>
     <edge source="com.vehicles.Tanker" target="com.vehicles.Vehicle" relationship="GENERALIZATION">
       <point x="0.0" y="-16.5" />
-      <point x="508.5" y="302.0" />
-      <point x="311.0" y="302.0" />
-      <point x="0.0" y="16.5" />
+      <point x="1242.3559322033898" y="466.0" />
+      <point x="1180.6059322033898" y="466.0" />
+      <point x="1180.6059322033898" y="456.0" />
+      <point x="888.189265536723" y="456.0" />
+      <point x="86.33333333333331" y="138.5" />
     </edge>
-    <edge source="com.vehicles.TimberTruck" target="com.vehicles.Vehicle" relationship="GENERALIZATION">
-      <point x="0.0" y="-16.5" />
-      <point x="237.0" y="302.0" />
-      <point x="311.0" y="302.0" />
+    <edge source="com.world.World" target="com.point.harvestpoints.Woodshed" relationship="CREATE">
+      <point x="33.0" y="-126.5" />
+      <point x="925.0550847457625" y="1428.0" />
+      <point x="1182.1059322033898" y="1428.0" />
       <point x="0.0" y="16.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.7" showDependencies="false" x="403.1428571428572" y="228.42857142857144" />
+  <settings layout="Hierarchic" zoom="0.6371584699453552" showDependencies="true" x="1109.0" y="437.5" />
   <SelectedNodes />
-  <Categories />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
 </Diagram>

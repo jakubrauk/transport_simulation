@@ -1,0 +1,296 @@
+[
+  {
+    "name": "World",
+    "superclasses": "Main",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Randomly places Points on World map",
+      "Randomly places Vehicles inside Points on map",
+      "Moves all Vehicles",
+      ""
+    ],
+    "collaborators": [
+      "Point",
+      "Vehicle",
+      ""
+    ]
+  },
+  {
+    "name": "Vehicle",
+    "superclasses": "",
+    "subclasses": "Tow Truck, TimberTruck, Lorry, Tanker",
+    "type": 2,
+    "responsibilities": [
+      "Przechowuje koordynaty pojazdu",
+      "Przechowuje zyski (majątek)",
+      "Odpowiada za poruszanie"
+    ],
+    "collaborators": [
+      "IncomeManager"
+    ]
+  },
+  {
+    "name": "TowTruck",
+    "superclasses": "Vehicle",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje rodzaj",
+      "Przechowuje koszt transportu dla tego pojazdu",
+      "Przechowuje maksymalny załadunek"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "TimberTruck",
+    "superclasses": "Vehicle",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje rodzaj",
+      "Przechowuje koszt transportu dla tego pojazdu",
+      "Przechowuje maksymalny załadunek"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "Tanker",
+    "superclasses": "Vehicle",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje rodzaj",
+      "Przechowuje koszt transportu dla tego pojazdu",
+      "Przechowuje maksymalny załadunek"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "Lorry",
+    "superclasses": "Vehicle",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje rodzaj",
+      "Przechowuje koszt transportu dla tego pojazdu",
+      "Przechowuje maksymalny załadunek"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "UserInput",
+    "superclasses": "Main",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Pobiera informacje początkowe od użytkownika (Liczba pojazdów, liczba punktów z surowcami, punktów sprzedaży, rozmiar świata)",
+      "Przechowuje informacje początkowe"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "Point",
+    "superclasses": "",
+    "subclasses": "HarvestPoint, SellPoint, EmptyPoint",
+    "type": 2,
+    "responsibilities": [
+      "Przechowywanie rodzaj punktu",
+      "Przechowuje aktualnie znajdujące się w nim pojazdy",
+      "Wyświetla pojazd",
+      "Odpowiada za umieszczanie i usuwanie z niego pojazdów"
+    ],
+    "collaborators": [
+      "Vehicle"
+    ]
+  },
+  {
+    "name": "SellPoint",
+    "superclasses": "Point",
+    "subclasses": "SellCarDealer, SellRefinery, SellWareHouse, SellWoodshed",
+    "type": 2,
+    "responsibilities": [
+      "Przechowuje typ punktu (SellPoint)"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "SellWoodshed",
+    "superclasses": "SellPoint",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje cene sprzedaży",
+      "Przechowuje typ punktu sprzedaży",
+      ""
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "SellWarehouse",
+    "superclasses": "SellPoint",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje cene sprzedaży",
+      "Przechowuje typ punktu sprzedaży"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "SellRefinery",
+    "superclasses": "SellPoint",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje cene sprzedaży",
+      "Przechowuje typ punktu sprzedaży"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "SellCarDealer",
+    "superclasses": "SellPoint",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje cene sprzedaży",
+      "Przechowuje typ punktu sprzedaży"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "HarvestPoint",
+    "superclasses": "Point",
+    "subclasses": "CarDealer, Refinery, Warehouse, Woodshed",
+    "type": 2,
+    "responsibilities": [
+      "Przechowuje typ punktu",
+      "Odpowiada za załadunek produktu"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "CarDealer",
+    "superclasses": "HarvestPoint",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje rodzaj punktu z surowcem",
+      "Przechowuje ilość produktu"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "Refinery",
+    "superclasses": "HarvestPoint",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje rodzaj punktu z surowcem",
+      "Przechowuje ilość produktu"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "Warehouse",
+    "superclasses": "HarvestPoint",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje rodzaj punktu z surowcem",
+      "Przechowuje ilość produktu"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "Woodshed",
+    "superclasses": "HarvestPoint",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje rodzaj punktu z surowcem",
+      "Przechowuje ilość produktu"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "EmptyPoint",
+    "superclasses": "Point",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje rodzaj punktu"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "FileOutput",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Zapisuje dane pojazdów co określoną ilość przemieszczeń do pliku"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "IncomeManager",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Przechowuje zarobki przypisanego pojazdu"
+    ],
+    "collaborators": [
+      "Vehicle"
+    ]
+  },
+  {
+    "name": "Main",
+    "superclasses": "",
+    "subclasses": "World, UserInput",
+    "type": 1,
+    "responsibilities": [
+      "Klasa głowna"
+    ],
+    "collaborators": [
+      "World",
+      "UserInput"
+    ]
+  }
+]
