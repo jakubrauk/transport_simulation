@@ -4,23 +4,18 @@ point/sellpoints/SellRefinery.java
  point.sellpoints.SellRefinery
 point/harvestpoints/HarvestPoint.java
  point.harvestpoints.HarvestPoint
-userinput/UserInput.java
- userinput.UserInput
+transport_simulation/Main.java
+ transport_simulation.Main
 vehicles/TimberTruck.java
  vehicles.TimberTruck
 point/harvestpoints/Warehouse.java
  point.harvestpoints.Warehouse
-world/World.java
- world.World
- world.World$PointsSupplier
 point/EmptyPoint/EmptyPoint.java
  point.EmptyPoint.EmptyPoint
 point/sellpoints/SellCarDealer.java
  point.sellpoints.SellCarDealer
 point/harvestpoints/CarDealer.java
  point.harvestpoints.CarDealer
-incomemanager/IncomeManager.java
- incomemanager.IncomeManager
 vehicles/Lorry.java
  vehicles.Lorry
 point/sellpoints/SellWarehouse.java
@@ -41,5 +36,10 @@ point/Point.java
  point.Point
 point/sellpoints/SellWoodshed.java
  point.sellpoints.SellWoodshed
-transport_simulation/Main.java
- transport_simulation.Main
+userinput/UserInput.java
+ userinput.UserInput
+incomemanager/IncomeManager.java
+ incomemanager.IncomeManager
+world/World.java
+ world.World
+ world.World$PointsSupplier
