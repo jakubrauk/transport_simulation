@@ -2,8 +2,8 @@ package com.point.sellpoints;
 
 public class SellCarDealer extends SellPoint {
 
-    public SellCarDealer(int PrizeOfProduct){
-        this.PrizeOfProduct = PrizeOfProduct;
+    public SellCarDealer(){
+//        this.PrizeOfProduct = PrizeOfProduct;  Commented out because of conflict in random generation
         this.type = "CarDealer";
     }
 

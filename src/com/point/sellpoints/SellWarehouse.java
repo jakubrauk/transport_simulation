@@ -2,9 +2,9 @@ package com.point.sellpoints;
 
 public class SellWarehouse extends SellPoint{
 
-    public SellWarehouse(int PrizeOfProduct){
-        this.PrizeOfProduct = PrizeOfProduct;
-        this.type = "CarDealer";
+    public SellWarehouse(){
+//        this.PrizeOfProduct = PrizeOfProduct; Commented out because of conflict in random generation
+        this.type = "Warehouse";
     }
 }
 

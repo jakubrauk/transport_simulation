@@ -9,6 +9,10 @@ public abstract class SellPoint extends Point {
         this.typeOfPoint = "SellPoint";
     }
 
+    public void setPrizeOfProduct(int newPrize){
+        this.PrizeOfProduct = newPrize;
+    }
+
     public int getPrizeOfProduct(){
         return this.PrizeOfProduct;
     }
