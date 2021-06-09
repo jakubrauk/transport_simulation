@@ -72,7 +72,14 @@ public class UserInput {
     }
 
     public void setWorldSize() {
-        this.worldSize = this.getInputValue("world size");
+        int newWorldSize = 0;
+        do {
+            newWorldSize = this.getInputValue("world size");
+            if (newWorldSize * newWorldSize < this.getHarvestPointNumber()+this.getSellPointNumber()) {
+                System.out.println("world size to small.");
+            }
+        } while (newWorldSize * newWorldSize < this.getHarvestPointNumber()+this.getSellPointNumber());
+        this.worldSize = newWorldSize;
     }
 
     public void getUserInput() {

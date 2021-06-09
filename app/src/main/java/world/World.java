@@ -2,10 +2,7 @@ package world;
 
 import point.EmptyPoint.EmptyPoint;
 import point.Point;
-import point.harvestpoints.CarDealer;
-import point.harvestpoints.Refinery;
-import point.harvestpoints.Warehouse;
-import point.harvestpoints.Woodshed;
+import point.harvestpoints.*;
 import point.sellpoints.SellCarDealer;
 import point.sellpoints.SellRefinery;
 import point.sellpoints.SellWarehouse;
@@ -42,6 +39,7 @@ public class World {
 
             // Randomly choose vehicle type
             Vehicle randomVehicle = vehicleTypes[r.nextInt(vehicleTypes.length)].get();
+            randomVehicle.setCoordinates(randXcoords, randYcoords);
             this.putVehicleOnPoint(randXcoords, randYcoords, randomVehicle);
         }
     }
@@ -112,11 +110,28 @@ public class World {
 
     public void moveAllVehicles() {
         for (Vehicle v : this.getAllVehicles()) {
-            v.moveVehicle();
+            // sprawdz czy pojazd ma wystarczajaco srodkow zeby sie poruszyc
+            if (v.getMoney() >= v.getTransportCost()) {
+                int x = v.getxCoordinate();
+                int y = v.getyCoordinate();
+                Point oldPoint = this.getPoint(x, y);
+                int[] newCoords = v.moveVehicle(this.worldSize);
+                oldPoint.removeVehicle(v);
+                this.putVehicleOnPoint(newCoords[0], newCoords[1], v);
+                Point newPoint = this.getPoint(newCoords[0], newCoords[1]);
+
+                if (!(newPoint instanceof EmptyPoint)) {
+                    if (newPoint instanceof HarvestPoint) {
+                        // zrob cos
+                        System.out.println("is harvest point instance");
+                    } else {
+                        // zrob cos
+                        System.out.println("is sell point instance");
+                    }
+                }
+            } else {
+                System.out.println("Not enough money to move vehicle.");
+            }
         }
     }
-
-
-
-
 }

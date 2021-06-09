@@ -3,6 +3,10 @@ package incomemanager;
 public class IncomeManager {
     protected int money;
 
+    public int getMoney() {
+        return money;
+    }
+
     public IncomeManager(int money) {
         this.money = money;
     }

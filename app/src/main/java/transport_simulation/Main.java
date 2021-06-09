@@ -26,12 +26,17 @@ public class Main {
         world.getAllPoints();
         FileOutput userFileOutput = new FileOutput();
 
-        for (int i = 0; i < userInput.getNumberOfIterarions(); i++) {
+        for (int i = 0; i < userInput.getNumberOfIterations(); i++) {
+
+            System.out.println("====================ITERATION NUMBER " + i);
             world.moveAllVehicles();
             if (i % userInput.getDataCheckpoint() == 0) {
                 userFileOutput.saveOutputFile();
             }
         }
+        System.out.println("Simulation ended");
+        world.getAllPoints();
+
         userFileOutput.saveOutputFile();
     }
 
