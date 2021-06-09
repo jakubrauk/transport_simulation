@@ -13,9 +13,17 @@ public class Main {
         System.out.println(new Main().getGreeting());
         UserInput userInput = new UserInput();
         userInput.getUserInput();
-        World world = new World(5);
+        System.out.println("provided number of iterations: " + userInput.getNumberOfIterations());
+        System.out.println("provided number of vehicles: " + userInput.getVehicleNumber());
+        System.out.println("provided number of harvest points: " + userInput.getHarvestPointNumber());
+        System.out.println("provided number of sell points: " + userInput.getSellPointNumber());
+        System.out.println("provided number of data checkpoints: " + userInput.getDataCheckpoint());
+        System.out.println("provided number of world size: " + userInput.getWorldSize());
+
+        World world = new World(userInput.getWorldSize());
 
         world.generateWorld(userInput);
+        world.getAllPoints();
         FileOutput userFileOutput = new FileOutput();
 
         for (int i = 0; i < userInput.getNumberOfIterarions(); i++) {
@@ -26,4 +34,5 @@ public class Main {
         }
         userFileOutput.saveOutputFile();
     }
+
 }

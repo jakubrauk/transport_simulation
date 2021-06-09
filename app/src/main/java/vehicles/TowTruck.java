@@ -2,8 +2,8 @@ package vehicles;
 
 public class TowTruck extends Vehicle {
 
-    public TowTruck(int maxAmountOfGoods) {
-        this.maxAmountOfGoods = maxAmountOfGoods;
+    public TowTruck() {
+        this.maxAmountOfGoods = 44;
         this.transportCost = 10;
         this.type = "TowTruck";
     }

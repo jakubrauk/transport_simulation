@@ -28,3 +28,7 @@ application {
     // Define the main class for the application.
     mainClass = 'transport_simulation.Main'
 }
+
+run {
+    standardInput = System.in;
+}

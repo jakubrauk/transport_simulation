@@ -16,7 +16,7 @@ public abstract class Point{
     public String getType(){ return type; }
     public String getTypeOfPoint(){ return typeOfPoint; }
 
-    public void putVehicle(Vehicle newVehicle) { this.listOfVehicles.add(newVehicle); }
+    public void putVehicle(Vehicle vehicle) { this.listOfVehicles.add(vehicle); }
     public void removeVehicle(Vehicle vehicleInstance) { this.listOfVehicles.remove(vehicleInstance); }
 
     public void displayVehicles() {

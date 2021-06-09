@@ -43,3 +43,4 @@ incomemanager/IncomeManager.java
 world/World.java
  world.World
  world.World$PointsSupplier
+ world.World$VehicleSupplier

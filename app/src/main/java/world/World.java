@@ -11,7 +11,7 @@ import point.sellpoints.SellRefinery;
 import point.sellpoints.SellWarehouse;
 import point.sellpoints.SellWoodshed;
 import userinput.UserInput;
-import vehicles.Vehicle;
+import vehicles.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +28,22 @@ public class World {
 
     public Point getPoint(int x, int y) { return this.pointsList[x][y]; }
 
-    public void placeVehicles() {
-        // Randomly generating vehicle coords and putting it inside Points
+    public void putVehicleOnPoint(int x, int y, Vehicle vehicle) {
+        this.pointsList[x][y].putVehicle(vehicle);
+    }
 
+    interface VehicleSupplier extends Supplier<Vehicle> {} // Supplier needed for storing list of Vehicle child classes
+    public void placeVehicles(VehicleSupplier[] vehicleTypes, int numberOfVehicles) {
+        // Randomly generating vehicle coords and putting it inside Points
+        Random r = new Random(); // used for randomizing point coords
+        for (int i = 0; i < numberOfVehicles; i++) {
+            int randXcoords = r.nextInt(this.worldSize);
+            int randYcoords = r.nextInt(this.worldSize);
+
+            // Randomly choose vehicle type
+            Vehicle randomVehicle = vehicleTypes[r.nextInt(vehicleTypes.length)].get();
+            this.putVehicleOnPoint(randXcoords, randYcoords, randomVehicle);
+        }
     }
 
     public List<Point> getAllPoints() {
@@ -38,7 +51,8 @@ public class World {
         for (int x = 0; x < this.worldSize; x++) {
             for (int y = 0; y < this.worldSize; y++) {
                 if (this.pointsList[x][y] != null) {
-//                    System.out.println("[" + x + "][" + y + "] " + this.pointsList[x][y]);
+                    System.out.println("[" + x + "][" + y + "] " + this.pointsList[x][y].getTypeOfPoint() + " " + this.pointsList[x][y].getType());
+                    System.out.println(this.pointsList[x][y].getListOfVehicles().size());
                     listOfPoints.add(this.pointsList[x][y]);
                 }
             }
@@ -79,10 +93,11 @@ public class World {
         this.placeEmptyPoints();
         PointsSupplier[] listOfHarvestPointsClasses = {CarDealer::new, Refinery::new, Warehouse::new, Woodshed::new};
         PointsSupplier[] listOfSellPointsClasses = {SellCarDealer::new, SellRefinery::new, SellWarehouse::new, SellWoodshed::new};
+        VehicleSupplier[] listOfVehicleClasses = {Lorry::new, Tanker::new, TimberTruck::new, TowTruck::new};
 
-        this.placePoints(listOfHarvestPointsClasses, input.getHarvestPlaceNumber());
+        this.placePoints(listOfHarvestPointsClasses, input.getHarvestPointNumber());
         this.placePoints(listOfSellPointsClasses, input.getSellPointNumber());
-        this.placeVehicles();
+        this.placeVehicles(listOfVehicleClasses, input.getVehicleNumber());
     }
 
     public void checkWorldField(int x, int y) { System.out.println(this.pointsList[x][y]); }
