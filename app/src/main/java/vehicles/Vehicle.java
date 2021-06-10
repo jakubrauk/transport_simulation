@@ -5,22 +5,49 @@ import incomemanager.IncomeManager;
 import java.util.Random;
 
 public abstract class Vehicle {
+    protected int id;
     protected Random randomMoneyGenerator = new Random();
     protected String type;
     protected int transportCost;
     protected IncomeManager income = new IncomeManager(randomMoneyGenerator.nextInt(2000) + 1000);
     protected int maxAmountOfGoods;
+    protected int currentAmoutOfGoods;
     protected int xCoordinate;
     protected int yCoordinate;
     protected boolean isLoaded;
+    protected int fieldsMoved = 0;
 
-    public int getMoney(){
+    public int getMoney() {
         return this.income.getMoney();
+    }
+
+    public int getInitialMoney() {
+        return this.income.getInitialMoney();
+    }
+
+    public int getCurrentAmoutOfGoods() {
+        return currentAmoutOfGoods;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setCoordinates(int x, int y) {
         this.xCoordinate = x;
         this.yCoordinate = y;
+    }
+
+    public int getFieldsMoved() {
+        return fieldsMoved;
+    }
+
+    public void appendFieldsMoved() {
+        this.fieldsMoved += 1;
     }
 
     public int getxCoordinate() {
@@ -48,7 +75,7 @@ public abstract class Vehicle {
     }
 
     public int[] moveVehicle(int worldSize) {
-        System.out.println("Vehicle position: " + this.xCoordinate + " " + this.yCoordinate);
+//        System.out.println("Vehicle position: " + this.xCoordinate + " " + this.yCoordinate);
         // Trzeba ten pojazd usunac ze starego punktu i przypisac do nowego.
         // Moves vehicle in random direction (always 1 point), causing decrease of money
         // x+1 or y+1 or x-1..
@@ -96,8 +123,8 @@ public abstract class Vehicle {
 //        newRandomCoords[0] = randX;
 //        newRandomCoords[1] = randY;
         this.income.decreaseMoney(this.transportCost);
-        System.out.println("new x coords" + newRandomCoords[0]);
-        System.out.println("new y coords" + newRandomCoords[1]);
+//        System.out.println("new x coords" + newRandomCoords[0]);
+//        System.out.println("new y coords" + newRandomCoords[1]);
         return newRandomCoords;
     }
 

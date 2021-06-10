@@ -26,18 +26,21 @@ public class Main {
         world.getAllPoints();
         FileOutput userFileOutput = new FileOutput();
 
+        userFileOutput.saveOutputFile("Before_start", world);
+
         for (int i = 0; i < userInput.getNumberOfIterations(); i++) {
 
             System.out.println("====================ITERATION NUMBER " + i);
             world.moveAllVehicles();
             if (i % userInput.getDataCheckpoint() == 0) {
-                userFileOutput.saveOutputFile();
+                String filename = "Checkpoint_" + i;
+                userFileOutput.saveOutputFile(filename, world);
             }
         }
         System.out.println("Simulation ended");
-        world.getAllPoints();
+//        world.getAllPoints();
 
-        userFileOutput.saveOutputFile();
+        userFileOutput.saveOutputFile("Final_file", world);
     }
 
 }

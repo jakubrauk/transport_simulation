@@ -40,6 +40,7 @@ public class World {
             // Randomly choose vehicle type
             Vehicle randomVehicle = vehicleTypes[r.nextInt(vehicleTypes.length)].get();
             randomVehicle.setCoordinates(randXcoords, randYcoords);
+            randomVehicle.setId(i+1);
             this.putVehicleOnPoint(randXcoords, randYcoords, randomVehicle);
         }
     }
@@ -49,8 +50,8 @@ public class World {
         for (int x = 0; x < this.worldSize; x++) {
             for (int y = 0; y < this.worldSize; y++) {
                 if (this.pointsList[x][y] != null) {
-                    System.out.println("[" + x + "][" + y + "] " + this.pointsList[x][y].getTypeOfPoint() + " " + this.pointsList[x][y].getType());
-                    System.out.println(this.pointsList[x][y].getListOfVehicles().size());
+//                    System.out.println("[" + x + "][" + y + "] " + this.pointsList[x][y].getTypeOfPoint() + " " + this.pointsList[x][y].getType());
+//                    System.out.println(this.pointsList[x][y].getListOfVehicles().size());
                     listOfPoints.add(this.pointsList[x][y]);
                 }
             }
@@ -118,6 +119,7 @@ public class World {
                 int[] newCoords = v.moveVehicle(this.worldSize);
                 oldPoint.removeVehicle(v);
                 this.putVehicleOnPoint(newCoords[0], newCoords[1], v);
+                v.appendFieldsMoved();
                 Point newPoint = this.getPoint(newCoords[0], newCoords[1]);
 
                 if (!(newPoint instanceof EmptyPoint)) {
