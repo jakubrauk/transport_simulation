@@ -6,5 +6,6 @@ public class TimberTruck extends Vehicle {
         this.maxAmountOfGoods = 53;
         this.transportCost = 20;
         this.type = "TimberTruck";
+        this.acceptedPointType = "Woodshed";
     }
 }

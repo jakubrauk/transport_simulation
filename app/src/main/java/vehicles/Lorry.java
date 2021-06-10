@@ -6,5 +6,6 @@ public class Lorry extends Vehicle {
         this.maxAmountOfGoods = 100;
         this.transportCost = 15;
         this.type = "Lorry";
+        this.acceptedPointType = "Warehouse";
     }
 }

@@ -6,5 +6,6 @@ public class Tanker extends Vehicle{
         this.maxAmountOfGoods = 199;
         this.transportCost = 15;
         this.type = "Tanker";
+        this.acceptedPointType = "Refinery";
     }
 }

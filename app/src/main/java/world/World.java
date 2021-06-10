@@ -11,6 +11,7 @@ import userinput.UserInput;
 import vehicles.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
@@ -109,6 +110,12 @@ public class World {
         return listOfVehicles;
     }
 
+    public List<Vehicle> getSortedListOfVehicles() {
+        List<Vehicle> listOfVehicles = this.getAllVehicles();
+        listOfVehicles.sort(Comparator.comparing(Vehicle::getId));
+        return listOfVehicles;
+    }
+
     public void moveAllVehicles() {
         for (Vehicle v : this.getAllVehicles()) {
             // sprawdz czy pojazd ma wystarczajaco srodkow zeby sie poruszyc
@@ -123,16 +130,19 @@ public class World {
                 Point newPoint = this.getPoint(newCoords[0], newCoords[1]);
 
                 if (!(newPoint instanceof EmptyPoint)) {
-                    if (newPoint instanceof HarvestPoint) {
-                        // zrob cos
-                        System.out.println("is harvest point instance");
-                    } else {
-                        // zrob cos
-                        System.out.println("is sell point instance");
-                    }
+                    newPoint.processVehicle(v);
                 }
-            } else {
-                System.out.println("Not enough money to move vehicle.");
+            }
+//            else {
+//                System.out.println("Not enough money to move vehicle.");
+//            }
+        }
+    }
+
+    public void gatherResourcesHarvestPoints() {
+        for (Point p : this.getAllPoints()) {
+            if (p instanceof HarvestPoint) {
+                ((HarvestPoint) p).gatherResources();
             }
         }
     }

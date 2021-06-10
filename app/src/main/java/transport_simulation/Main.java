@@ -32,6 +32,8 @@ public class Main {
 
             System.out.println("====================ITERATION NUMBER " + i);
             world.moveAllVehicles();
+            world.gatherResourcesHarvestPoints();
+
             if (i % userInput.getDataCheckpoint() == 0) {
                 String filename = "Checkpoint_" + i;
                 userFileOutput.saveOutputFile(filename, world);

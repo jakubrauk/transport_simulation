@@ -8,14 +8,23 @@ public abstract class Vehicle {
     protected int id;
     protected Random randomMoneyGenerator = new Random();
     protected String type;
+    protected String acceptedPointType;
     protected int transportCost;
     protected IncomeManager income = new IncomeManager(randomMoneyGenerator.nextInt(2000) + 1000);
     protected int maxAmountOfGoods;
-    protected int currentAmoutOfGoods;
+    protected int currentAmountOfGoods = 0;
     protected int xCoordinate;
     protected int yCoordinate;
     protected boolean isLoaded;
     protected int fieldsMoved = 0;
+
+    public void increaseMoney(int amount) {
+        this.income.increaseMoney(amount);
+    }
+
+    public String getAcceptedPointType() {
+        return acceptedPointType;
+    }
 
     public int getMoney() {
         return this.income.getMoney();
@@ -25,8 +34,18 @@ public abstract class Vehicle {
         return this.income.getInitialMoney();
     }
 
-    public int getCurrentAmoutOfGoods() {
-        return currentAmoutOfGoods;
+    public int getCurrentAmountOfGoods() {
+        return currentAmountOfGoods;
+    }
+
+    public void increaseAmountOfGoods(int amount) {
+        this.currentAmountOfGoods += amount;
+    }
+
+    public int sellAllGoods() {
+        int old_amount = this.getCurrentAmountOfGoods();
+        this.currentAmountOfGoods = 0;
+        return old_amount;
     }
 
     public void setId(int id) {

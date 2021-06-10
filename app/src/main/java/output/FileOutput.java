@@ -18,14 +18,14 @@ public class FileOutput {
     // vehicle_id is not set yet. Also need to write ordering vehicles by id.
 
     private String getVehicleCSVLine(Vehicle v) {
-        return v.getId()+","+v.getType()+","+v.getFieldsMoved()+","+v.getCurrentAmoutOfGoods()+","+v.getInitialMoney()+","+v.getMoney();
+        return v.getId()+","+v.getType()+","+v.getFieldsMoved()+","+v.getCurrentAmountOfGoods()+","+v.getInitialMoney()+","+v.getMoney();
     }
     public void saveOutputFile(String filename, World world){
         try {
             FileWriter fw = new FileWriter(this.filepath + filename + this.file_extension, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
-            for (Vehicle v : world.getAllVehicles()) {
+            for (Vehicle v : world.getSortedListOfVehicles()) {
                 pw.println(this.getVehicleCSVLine(v));
             }
             pw.flush();

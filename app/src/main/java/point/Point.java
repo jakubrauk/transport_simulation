@@ -1,5 +1,7 @@
 package point;
 
+import point.harvestpoints.HarvestPoint;
+import point.sellpoints.SellPoint;
 import vehicles.Vehicle;
 
 import java.util.ArrayList;
@@ -9,9 +11,14 @@ public abstract class Point{
 
     protected String type;
     protected String typeOfPoint;
+    protected int prizeOfProduct;
     protected int xCoordinate;
     protected int yCoordinate;
     protected List<Vehicle> listOfVehicles = new ArrayList<>();
+
+    public int getPrizeOfProduct(){
+        return this.prizeOfProduct;
+    }
 
     public String getType(){ return type; }
     public String getTypeOfPoint(){ return typeOfPoint; }
@@ -29,8 +36,35 @@ public abstract class Point{
         this.xCoordinate = x;
         this.yCoordinate = y;
     }
-    public void getListOfRandomizedPoints(int worldSize){
-        // returns 2 dimensional list of Points including HarvestPoints and
+
+    public void loadGoods(Vehicle v) {
+        if (this instanceof HarvestPoint) {
+            ((HarvestPoint) this).loading(v);
+        }
+    }
+
+    public void sellGoods(Vehicle v) {
+        if (this instanceof SellPoint) {
+            ((SellPoint) this).sell(v);
+        }
+    }
+
+    public void processVehicle(Vehicle v) {
+        if (!(this.getTypeOfPoint().equals("Empty"))) {
+            if (this.getType().equals(v.getAcceptedPointType())) {
+                if (this.getTypeOfPoint().equals("HarvestPoint")) {
+                    // for harvest point
+//                    System.out.println("THIS IS A HARVEST POINT");
+                    this.loadGoods(v);
+                } else {
+                    // for sell point
+                    //10
+//                    System.out.println("THIS IS A SELL POINT");
+                    v.increaseMoney(this.getPrizeOfProduct());
+                    this.sellGoods(v);
+                }
+            }
+        }
     }
 
     public List<Vehicle> getListOfVehicles() {
