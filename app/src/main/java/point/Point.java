@@ -37,34 +37,19 @@ public abstract class Point{
         this.yCoordinate = y;
     }
 
-    public void loadGoods(Vehicle v) {
-        if (this instanceof HarvestPoint) {
-            ((HarvestPoint) this).loading(v);
-        }
-    }
-
-    public void sellGoods(Vehicle v) {
-        if (this instanceof SellPoint) {
-            ((SellPoint) this).sell(v);
-        }
-    }
+//    public void loadGoods(Vehicle v) {
+//        if (this instanceof HarvestPoint) {
+//            ((HarvestPoint) this).loading(v);
+//        }
+//    }
+//
+//    public void sellGoods(Vehicle v) {
+//        if (this instanceof SellPoint) {
+//            ((SellPoint) this).sell(v);
+//        }
+//    }
 
     public void processVehicle(Vehicle v) {
-        if (!(this.getTypeOfPoint().equals("Empty"))) {
-            if (this.getType().equals(v.getAcceptedPointType())) {
-                if (this.getTypeOfPoint().equals("HarvestPoint")) {
-                    // for harvest point
-//                    System.out.println("THIS IS A HARVEST POINT");
-                    this.loadGoods(v);
-                } else {
-                    // for sell point
-                    //10
-//                    System.out.println("THIS IS A SELL POINT");
-                    v.increaseMoney(this.getPrizeOfProduct());
-                    this.sellGoods(v);
-                }
-            }
-        }
     }
 
     public List<Vehicle> getListOfVehicles() {
