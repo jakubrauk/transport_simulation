@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="transport_simulation.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-09T17:25:43" hostname="envy" time="0.002">
+<testsuite name="transport_simulation.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-14T05:55:42" hostname="envy" time="0.001">
   <properties/>
-  <testcase name="testAppHasAGreeting" classname="transport_simulation.MainTest" time="0.002"/>
+  <testcase name="testAppHasAGreeting" classname="transport_simulation.MainTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

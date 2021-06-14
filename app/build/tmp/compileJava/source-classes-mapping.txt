@@ -1,23 +1,13 @@
-userinput/UserInput.java
- userinput.UserInput
-incomemanager/IncomeManager.java
- incomemanager.IncomeManager
-vehicles/Vehicle.java
- vehicles.Vehicle
 vehicles/Tanker.java
  vehicles.Tanker
-vehicles/TowTruck.java
- vehicles.TowTruck
-transport_simulation/Main.java
- transport_simulation.Main
-vehicles/TimberTruck.java
- vehicles.TimberTruck
-vehicles/Lorry.java
- vehicles.Lorry
 point/sellpoints/SellRefinery.java
  point.sellpoints.SellRefinery
 point/harvestpoints/HarvestPoint.java
  point.harvestpoints.HarvestPoint
+transport_simulation/Main.java
+ transport_simulation.Main
+vehicles/TimberTruck.java
+ vehicles.TimberTruck
 point/harvestpoints/Warehouse.java
  point.harvestpoints.Warehouse
 point/EmptyPoint/EmptyPoint.java
@@ -26,20 +16,30 @@ point/sellpoints/SellCarDealer.java
  point.sellpoints.SellCarDealer
 point/harvestpoints/CarDealer.java
  point.harvestpoints.CarDealer
+vehicles/Lorry.java
+ vehicles.Lorry
 point/sellpoints/SellWarehouse.java
  point.sellpoints.SellWarehouse
 point/sellpoints/SellPoint.java
  point.sellpoints.SellPoint
 point/harvestpoints/Refinery.java
  point.harvestpoints.Refinery
+vehicles/TowTruck.java
+ vehicles.TowTruck
 point/harvestpoints/Woodshed.java
  point.harvestpoints.Woodshed
 output/FileOutput.java
  output.FileOutput
 point/Point.java
  point.Point
+vehicles/Vehicle.java
+ vehicles.Vehicle
 point/sellpoints/SellWoodshed.java
  point.sellpoints.SellWoodshed
+userinput/UserInput.java
+ userinput.UserInput
+incomemanager/IncomeManager.java
+ incomemanager.IncomeManager
 world/World.java
  world.World
  world.World$PointsSupplier

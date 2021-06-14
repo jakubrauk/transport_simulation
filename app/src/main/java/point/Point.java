@@ -37,17 +37,6 @@ public abstract class Point{
         this.yCoordinate = y;
     }
 
-//    public void loadGoods(Vehicle v) {
-//        if (this instanceof HarvestPoint) {
-//            ((HarvestPoint) this).loading(v);
-//        }
-//    }
-//
-//    public void sellGoods(Vehicle v) {
-//        if (this instanceof SellPoint) {
-//            ((SellPoint) this).sell(v);
-//        }
-//    }
 
     public void processVehicle(Vehicle v) {
     }
