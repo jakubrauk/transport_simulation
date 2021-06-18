@@ -1,5 +1,7 @@
 package vehicles;
-
+/**
+ * This class stores data related to the timber truck type of vehicle
+ */
 public class TimberTruck extends Vehicle {
 
     public TimberTruck() {

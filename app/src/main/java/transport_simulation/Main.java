@@ -1,9 +1,12 @@
 package transport_simulation;
-
 import output.FileOutput;
 import userinput.UserInput;
 import world.World;
 
+/**
+ * This class is responsible for the entire process of the program's operation.
+ * Gathering userInput, generating World, generating output files
+ */
 public class Main {
     public String getGreeting() {
         return "Hello World!";
@@ -40,7 +43,6 @@ public class Main {
             }
         }
         System.out.println("Simulation ended");
-//        world.getAllPoints();
 
         userFileOutput.saveOutputFile("Final_file", world);
     }

@@ -1,9 +1,10 @@
 package point.harvestpoints;
-
 import point.Point;
 import vehicles.Vehicle;
-
 import java.util.Random;
+/**
+ * This class holds information and functions that are specific to each harvest point
+ */
 
 public abstract class HarvestPoint extends Point {
 
@@ -17,6 +18,10 @@ public abstract class HarvestPoint extends Point {
         return this.amountOfGoods;
     }
 
+    /**
+     *This function is responsible for loading goods into cars when staying at harvest point
+     * @param v Vehicle instance that is loaded
+     */
     public void loading(Vehicle v) {
         if (this.getAmountOfGoods() > 0) {
             if (v.getCurrentAmountOfGoods() != v.getMaxAmountOfGoods()) {
@@ -34,15 +39,21 @@ public abstract class HarvestPoint extends Point {
         }
     }
 
+    /**
+     *This function checks if the type of harvest point is suitable for a itself, if so, raw materials are loaded onto the vehicle
+     * @param v Vehicle instance that is moving
+     */
     public void processVehicle(Vehicle v) {
         if (this.getType().equals(v.getAcceptedPointType())) {
             if (this.getTypeOfPoint().equals("HarvestPoint")) {
-//                System.out.println("THIS IS A HARVEST POINT");
                 this.loading(v);
             }
         }
     }
 
+    /**
+     * This function adds a random amount to the vehicle budget with each iteration
+     */
     public void gatherResources() {
         Random r = new Random();
         this.amountOfGoods += r.nextInt(20 - 10) + 10;

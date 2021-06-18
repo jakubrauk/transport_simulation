@@ -1,9 +1,10 @@
 package point.sellpoints;
-
+/**
+ * This class store the data of SellCarDealer point on the map
+ */
 public class SellCarDealer extends SellPoint {
 
     public SellCarDealer(){
-//        this.PrizeOfProduct = PrizeOfProduct;  Commented out because of conflict in random generation
         this.type = "CarDealer";
     }
 

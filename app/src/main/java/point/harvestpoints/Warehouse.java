@@ -1,7 +1,8 @@
 package point.harvestpoints;
-
 import java.util.Random;
-
+/**
+ * This class store the data of Warehouse point on the map
+ */
 public class Warehouse extends HarvestPoint {
 
     public Warehouse(){

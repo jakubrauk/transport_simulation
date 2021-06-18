@@ -1,5 +1,7 @@
 package vehicles;
-
+/**
+ * This class stores data related to the tanker type of vehicle
+ */
 public class Tanker extends Vehicle{
 
     public Tanker() {

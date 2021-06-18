@@ -1,5 +1,7 @@
 package vehicles;
-
+/**
+ * This class stores data related to the tow truck type of vehicle
+ */
 public class TowTruck extends Vehicle {
 
     public TowTruck() {

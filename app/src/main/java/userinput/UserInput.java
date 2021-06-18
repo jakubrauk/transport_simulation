@@ -1,9 +1,8 @@
 package userinput;
-
-import point.harvestpoints.HarvestPoint;
-
 import java.util.Scanner;
-
+/**
+ * Class responsible for gathering necessary data from user
+ */
 public class UserInput {
     private int numberOfIterations;
     private int vehicleNumber;
@@ -13,6 +12,11 @@ public class UserInput {
     private int worldSize;
     public Scanner inputScanner = new Scanner(System.in);
 
+    /**
+     * Get input from user, with basic input security, does not accept values less than 0, or not digit.
+     * @param displayAttrName Name of variable to be passed.
+     * @return Returns value passed by the User.
+     */
     public int getInputValue(String displayAttrName) {
         int intInput = 0;
         do {
@@ -71,6 +75,10 @@ public class UserInput {
         return worldSize;
     }
 
+    /**
+     * Gathers world size (x by x) from user. World size cannot be less than sum of harvest and sell points
+     * that were passed before, to prevent lack of free space.
+     */
     public void setWorldSize() {
         int newWorldSize = 0;
         do {
@@ -82,8 +90,10 @@ public class UserInput {
         this.worldSize = newWorldSize;
     }
 
+    /**
+     * Collecting data from user.
+     */
     public void getUserInput() {
-        // Collecting data from user
         this.setNumberOfIterations();
         this.setVehicleNumber();
         this.setHarvestPointNumber();

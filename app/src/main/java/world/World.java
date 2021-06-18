@@ -1,5 +1,4 @@
 package world;
-
 import point.EmptyPoint.EmptyPoint;
 import point.Point;
 import point.harvestpoints.*;
@@ -9,13 +8,16 @@ import point.sellpoints.SellWarehouse;
 import point.sellpoints.SellWoodshed;
 import userinput.UserInput;
 import vehicles.*;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
+/**
+ * Class responsible for storing all Points and Vehicles. It generates the map with specified size (from UserInput)
+ * Randomly places Vehicles and Points when world is generated.
+ */
 public class World {
     int worldSize;
     Point[][] pointsList;
@@ -24,15 +26,31 @@ public class World {
         this.pointsList = new Point[this.worldSize][this.worldSize];
     }
 
+    /**
+     * Returns point on specified coordinates
+     * @param x x coordinate of point
+     * @param y y coordinate of point
+     * @return Returns Point that is on this coordinates in Worlds pointslist
+     */
     public Point getPoint(int x, int y) { return this.pointsList[x][y]; }
 
+    /**
+     * Append Points listOfVehicles with passed Vehicle instance
+     * @param x point x coordinate
+     * @param y point y coordinate
+     * @param vehicle Vehicle instance that will be put on Point
+     */
     public void putVehicleOnPoint(int x, int y, Vehicle vehicle) {
         this.pointsList[x][y].putVehicle(vehicle);
     }
 
     interface VehicleSupplier extends Supplier<Vehicle> {} // Supplier needed for storing list of Vehicle child classes
+    /**
+     * Randomly place All vehicles in Worlds pointsList
+     * @param vehicleTypes VehicleSupplier - list of all Vehicle child classes
+     * @param numberOfVehicles Number of vehicles, to be created
+     */
     public void placeVehicles(VehicleSupplier[] vehicleTypes, int numberOfVehicles) {
-        // Randomly generating vehicle coords and putting it inside Points
         Random r = new Random(); // used for randomizing point coords
         for (int i = 0; i < numberOfVehicles; i++) {
             int randXcoords = r.nextInt(this.worldSize);
@@ -46,13 +64,15 @@ public class World {
         }
     }
 
+    /**
+     * Return all points in Worlds pointsList
+     * @return Returns list of Points
+     */
     public List<Point> getAllPoints() {
         List<Point> listOfPoints = new ArrayList<>();
         for (int x = 0; x < this.worldSize; x++) {
             for (int y = 0; y < this.worldSize; y++) {
                 if (this.pointsList[x][y] != null) {
-//                    System.out.println("[" + x + "][" + y + "] " + this.pointsList[x][y].getTypeOfPoint() + " " + this.pointsList[x][y].getType());
-//                    System.out.println(this.pointsList[x][y].getListOfVehicles().size());
                     listOfPoints.add(this.pointsList[x][y]);
                 }
             }
@@ -60,6 +80,9 @@ public class World {
         return listOfPoints;
     }
 
+    /**
+     * Places empty points in pointsList to fill empty gaps
+     */
     public void placeEmptyPoints(){
         for (int x = 0; x < this.worldSize; x++) {
             for (int y = 0; y < this.worldSize; y++) {
@@ -69,6 +92,11 @@ public class World {
     }
 
     interface PointsSupplier extends Supplier<Point> {} // Supplier needed for storing list of Point child classes
+    /**
+     * Randomly places points on Worlds pointsList
+     * @param points PointsSupplier[] - list of points class childs, either SellPoints or HarvestPoints
+     * @param numberOfPoints Number of points to generate
+     */
     public void placePoints(PointsSupplier[] points, int numberOfPoints) {
         Random r = new Random(); // used for randomizing point coords
         // randomize points location on map
@@ -86,6 +114,10 @@ public class World {
         }
     }
 
+    /**
+     * Generates world, randomly places Points and Vehicles
+     * @param input UserInput instance
+     */
     public void generateWorld(UserInput input) {
 
         System.out.println("GENERATING WORLD");
@@ -100,8 +132,6 @@ public class World {
         this.placeVehicles(listOfVehicleClasses, input.getVehicleNumber());
     }
 
-    public void checkWorldField(int x, int y) { System.out.println(this.pointsList[x][y]); }
-
     public List<Vehicle> getAllVehicles() {
         List<Vehicle> listOfVehicles = new ArrayList<>();
         for (Point p : this.getAllPoints()) {
@@ -110,15 +140,21 @@ public class World {
         return listOfVehicles;
     }
 
+    /**
+     * @return Returns sorted list of Vehicles in World instance.
+     */
     public List<Vehicle> getSortedListOfVehicles() {
         List<Vehicle> listOfVehicles = this.getAllVehicles();
         listOfVehicles.sort(Comparator.comparing(Vehicle::getId));
         return listOfVehicles;
     }
 
+    /**
+     * Move all vehicles one point in random direction, if vehicle doesn't have enough money to move, it stays in the
+     * same place.
+     */
     public void moveAllVehicles() {
         for (Vehicle v : this.getAllVehicles()) {
-            // sprawdz czy pojazd ma wystarczajaco srodkow zeby sie poruszyc
             if (v.getMoney() >= v.getTransportCost()) {
                 int x = v.getxCoordinate();
                 int y = v.getyCoordinate();
@@ -133,12 +169,12 @@ public class World {
                     newPoint.processVehicle(v);
                 }
             }
-//            else {
-//                System.out.println("Not enough money to move vehicle.");
-//            }
         }
     }
 
+    /**
+     * Renew resources in all HarvestPoints in pointsList
+     */
     public void gatherResourcesHarvestPoints() {
         for (Point p : this.getAllPoints()) {
             if (p instanceof HarvestPoint) {

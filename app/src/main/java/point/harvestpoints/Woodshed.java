@@ -1,7 +1,8 @@
 package point.harvestpoints;
-
 import java.util.Random;
-
+/**
+ * This class store the data of Woodshed point on the map
+ */
 public class Woodshed extends HarvestPoint {
 
     public Woodshed(){

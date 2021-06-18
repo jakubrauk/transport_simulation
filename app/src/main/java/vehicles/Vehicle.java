@@ -1,9 +1,11 @@
 package vehicles;
-
 import incomemanager.IncomeManager;
-
 import java.util.Random;
 
+/**
+ * Class storing data of vehicles that are moving inside simulations World, every child of Vehicle has its own type.
+ * acceptedPointType corresponds to points types that vehicle can cooperate with.
+ */
 public abstract class Vehicle {
     protected int id;
     protected Random randomMoneyGenerator = new Random();
@@ -18,6 +20,10 @@ public abstract class Vehicle {
     protected boolean isLoaded;
     protected int fieldsMoved = 0;
 
+    /**
+     * Increase money of Vehicles IncomeManager
+     * @param amount Amount that will be added to Vehicles IncomeManager money
+     */
     public void increaseMoney(int amount) {
         this.income.increaseMoney(amount);
     }
@@ -38,10 +44,18 @@ public abstract class Vehicle {
         return currentAmountOfGoods;
     }
 
+    /**
+     * Append current amount of goods
+     * @param amount Amount that is added to currentAmountOfGoods.
+     */
     public void increaseAmountOfGoods(int amount) {
         this.currentAmountOfGoods += amount;
     }
 
+    /**
+     * Sell all goods and remove all current goods that are on vehicle.
+     * @return Returns old amount of vehicle goods
+     */
     public int sellAllGoods() {
         int old_amount = this.getCurrentAmountOfGoods();
         this.currentAmountOfGoods = 0;
@@ -56,6 +70,11 @@ public abstract class Vehicle {
         return id;
     }
 
+    /**
+     * Sets coordinates of Vehicle
+     * @param x x coordinate
+     * @param y y coordinate
+     */
     public void setCoordinates(int x, int y) {
         this.xCoordinate = x;
         this.yCoordinate = y;
@@ -89,18 +108,15 @@ public abstract class Vehicle {
         return this.maxAmountOfGoods;
     }
 
-    public boolean isVehicleLoaded() {
-        return this.isLoaded;
-    }
-
+    /**
+     * Move vehicle one field in random direction, if random directions are not possible it generates them again
+     * until valid direction is generated, after moving the vehicle, it's money is decreased by its transportCost
+     * @param worldSize world size of World instance, to prevent generating impossible coordinates
+     * @return Returns list of newly generated coordinates {x, y}
+     */
     public int[] moveVehicle(int worldSize) {
-//        System.out.println("Vehicle position: " + this.xCoordinate + " " + this.yCoordinate);
-        // Trzeba ten pojazd usunac ze starego punktu i przypisac do nowego.
-        // Moves vehicle in random direction (always 1 point), causing decrease of money
-        // x+1 or y+1 or x-1..
-        boolean coordsValid = false;
         Random r = new Random();
-        int[] randomCoords = new int[2];
+        int[] randomCoords;
         randomCoords = new int[]{0, 0};
 
         int[] newRandomCoords = new int[2];
@@ -110,8 +126,6 @@ public abstract class Vehicle {
             while (randomCoords[0] == 0 && randomCoords[1] == 0) {
                 randomCoords[0] = r.nextInt(3) - 1;
                 randomCoords[1] = r.nextInt(3) - 1;
-//                System.out.println("random direction x " + randomCoords[0]);
-//                System.out.println("random direction y " + randomCoords[1]);
             }
             if ((newRandomCoords[0] + randomCoords[0] >=0) && (newRandomCoords[0] + randomCoords[0] <= worldSize - 1)){
                 if ((newRandomCoords[1] + randomCoords[1] >=0) && (newRandomCoords[1] + randomCoords[1] <= worldSize - 1)){
@@ -129,21 +143,7 @@ public abstract class Vehicle {
                 randomCoords[1] = 0;
             }
         }
-
-        // 0 , 0 - aktualne polozenie
-        // -1 , -1 - nowe coordy
-        // +1 +1
-        // 0 , 0
-
-//        int randX = this.xCoordinate + randomCoords[0];
-//        int randY = this.yCoordinate + randomCoords[1];
-
-//        int[] newRandomCoords = new int[2];
-//        newRandomCoords[0] = randX;
-//        newRandomCoords[1] = randY;
         this.income.decreaseMoney(this.transportCost);
-//        System.out.println("new x coords" + newRandomCoords[0]);
-//        System.out.println("new y coords" + newRandomCoords[1]);
         return newRandomCoords;
     }
 
